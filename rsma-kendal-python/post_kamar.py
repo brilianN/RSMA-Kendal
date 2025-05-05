@@ -22,10 +22,10 @@ def proses_otomatis():
     output_text.delete("1.0", tk.END)  # Kosongkan log
     output_text.config(state='disabled')
 
-    url_token = "http://localhost/rsma/auth/GetToken"
+    url_token = "{{url}}"
     headers_token = {
-        'kode_rs': '3324037',
-        'password': 'user'
+        'kode_rs': '{{kode generate}}',
+        'password': '{{pass generate}}'
     }
 
     try:
@@ -43,15 +43,15 @@ def proses_otomatis():
         log(f"✅ Token diterima:\n{token}")
         simpan_token_ke_file(token)
 
-        url_kamar = "http://localhost/rsma/kamar/update"
+        url_kamar = "{{url}}"
         payload = json.dumps([
             {"koderuang": "I042", "namaruang": "ABU BAKAR 7", "kapasitas": 9},
             {"koderuang": "I04", "namaruang": "ABU BAKAR 6 TEST", "kapasitas": 8},
             {"koderuang": "", "namaruang": "Salah Format", "kapasitas": -2}
         ])
         headers_kamar = {
-            'kode_rs': '3324037',
-            'password': 'user',
+            'kode_rs': '{{kode generate}}',
+            'password': '{{pass generate}}',
             'token_rsma': token,
             'Content-Type': 'application/json'
         }
