@@ -3,10 +3,10 @@ import tkinter as tk
 from tkinter import messagebox
 
 def get_token():
-    url = "https://apirsdi.rsu-darulistiqomah.com/auth/GetToken"
+    url = "url-gettoken"
     headers = {
-        'kode_rs': '3324037',
-        'password': 'user'
+        'kode_rs': '{{kode generate rs}}',
+        'password': '{{password generate}}'
     }
 
     try:
